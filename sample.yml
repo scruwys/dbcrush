@@ -1,0 +1,20 @@
+meta:
+  dialect: mysql
+  username: root
+  hostname: localhost
+  port: 3306
+  dbname: commercials
+spec:
+  iterations: -1
+  maxConcurrentConnections: 10
+  numberOfQueries: 5000
+  statementRatio: [70, 10, 10, 10]
+  tableIgnorelist:
+    - commercials.cua
+    - commercials.mpua
+  tableOverrides:
+    - tableName: commercials.ofa
+      statementRatio: [10, 90, 0, 0]
+    - tableName: commercials.ofa_lines
+      numberOfQueries: 1000
+      statementRatio: [10, 90, 0, 0]
